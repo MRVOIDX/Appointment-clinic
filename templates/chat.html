@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+
+{% block title %}AI Assistant - DARSEHHA Clinic{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h4 class="mb-0">
+                                <i class="fas fa-robot me-2"></i>
+                                AI Appointment Assistant
+                            </h4>
+                            <small class="text-light">Book your appointment with our smart assistant</small>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-light btn-sm" id="resetChat" title="Start New Conversation">
+                                <i class="fas fa-refresh"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-body p-0" style="height: 500px; display: flex; flex-direction: column;">
+                    <!-- Chat Messages Area -->
+                    <div id="chatMessages" class="flex-grow-1 p-3 overflow-auto" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                        <!-- Welcome Message -->
+                        <div class="message-wrapper mb-3">
+                            <div class="bot-message">
+                                <div class="message-bubble bot">
+                                    <div class="message-content">
+                                        <i class="fas fa-robot text-primary me-2"></i>
+                                        <strong>Welcome to DARSEHHA Clinic!</strong><br>
+                                        I'm your AI assistant and I'm here to help you book an appointment. Just tell me you'd like to schedule an appointment and I'll guide you through the process!
+                                    </div>
+                                    <div class="message-time">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Typing Indicator -->
+                    <div id="typingIndicator" class="px-3 pb-2" style="display: none;">
+                        <div class="message-wrapper">
+                            <div class="bot-message">
+                                <div class="message-bubble bot typing">
+                                    <div class="typing-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Input Area -->
+                    <div class="border-top bg-white p-3">
+                        <form id="chatForm" class="row g-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <input 
+                                        type="text" 
+                                        id="messageInput" 
+                                        class="form-control" 
+                                        placeholder="Type your message here..."
+                                        autocomplete="off"
+                                        required
+                                    >
+                                    <button class="btn btn-primary" type="submit" id="sendButton">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <!-- Quick Actions -->
+                        <div class="mt-2">
+                            <div class="d-flex flex-wrap gap-1">
+                                <button class="btn btn-outline-primary btn-sm quick-action" data-message="I want to book an appointment">
+                                    <i class="fas fa-calendar-plus me-1"></i> Book Appointment
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm quick-action" data-message="What departments do you have?">
+                                    <i class="fas fa-question-circle me-1"></i> Available Departments
+                                </button>
+                                <button class="btn btn-outline-info btn-sm quick-action" data-message="What are your hours?">
+                                    <i class="fas fa-clock me-1"></i> Hours
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Help Section -->
+            <div class="card mt-3 border-0 bg-light">
+                <div class="card-body py-2">
+                    <div class="row align-items-center text-center">
+                        <div class="col-md-4">
+                            <small class="text-muted">
+                                <i class="fas fa-lightbulb text-warning me-1"></i>
+                                <strong>Tip:</strong> Just type naturally!
+                            </small>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted">
+                                <i class="fas fa-clock text-info me-1"></i>
+                                Available 24/7
+                            </small>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted">
+                                <i class="fas fa-shield-alt text-success me-1"></i>
+                                Secure & Private
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="appointmentSuccessModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Appointment Booked!
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="mb-3">
+                    <i class="fas fa-calendar-check text-success" style="font-size: 3rem;"></i>
+                </div>
+                <h5>Your appointment has been submitted!</h5>
+                <p class="mb-0">We'll review your request and get back to you soon via email or phone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{{ url_for('my_appointments') }}" class="btn btn-primary">
+                    <i class="fas fa-calendar-check me-1"></i>
+                    View My Appointments
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Chat-specific styles */
+.message-wrapper {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.message-bubble.user {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    margin-left: auto;
+}
+
+.message-bubble.bot {
+    background: white;
+    color: var(--text-dark);
+    border: 1px solid #e9ecef;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.message-content {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 4px;
+    text-align: right;
+}
+
+.bot .message-time {
+    text-align: left;
+}
+
+/* Typing indicator */
+.typing-dots {
+    display: flex;
+    gap: 4px;
+    padding: 8px 0;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Quick actions */
+.quick-action {
+    font-size: 0.85rem;
+    border-radius: 20px;
+}
+
+.quick-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Chat input */
+#messageInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(39, 174, 96, 0.25);
+}
+
+/* Scrollbar styling */
+#chatMessages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chatMessages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .message-bubble {
+        max-width: 90%;
+    }
+    
+    .quick-action {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+</style>
+
+<!-- Chat JavaScript -->
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

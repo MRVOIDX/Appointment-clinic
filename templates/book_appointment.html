@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Book Appointment - MediCare Clinic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Page Header -->
+            <div class="text-center mb-5">
+                <h1 class="fw-bold">
+                    <i class="fas fa-calendar-plus text-primary me-2"></i>
+                    Book an Appointment
+                </h1>
+                <p class="text-muted">Fill out the form below to schedule your appointment</p>
+            </div>
+
+            <!-- Appointment Form -->
+            <div class="appointment-form-card">
+                <form method="POST" id="appointmentForm">
+                    <!-- Personal Information -->
+                    <div class="form-section mb-4">
+                        <h5 class="section-title">
+                            <i class="fas fa-user me-2"></i>Personal Information
+                        </h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="full_name" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="date_of_birth" class="form-label">Date of Birth *</label>
+                                <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gender" class="form-label">Gender *</label>
+                                <select class="form-select" id="gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Details -->
+                    <div class="form-section mb-4">
+                        <h5 class="section-title">
+                            <i class="fas fa-calendar me-2"></i>Appointment Details
+                        </h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="appointment_date" class="form-label">Preferred Date *</label>
+                                <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="appointment_time" class="form-label">Preferred Time *</label>
+                                <select class="form-select" id="appointment_time" name="appointment_time" required>
+                                    <option value="">Select Time</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="09:30">09:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="14:30">02:30 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="15:30">03:30 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="16:30">04:30 PM</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="department" class="form-label">Department *</label>
+                                <select class="form-select" id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="ophthalmology">Ophthalmology</option>
+                                    <option value="dermatology">Dermatology</option>
+                                    <option value="general">General Medicine</option>
+                                    <option value="pediatrics">Pediatrics</option>
+                                    <option value="psychiatry">Psychiatry</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="doctor_preference" class="form-label">Doctor Preference</label>
+                                <input type="text" class="form-control" id="doctor_preference" name="doctor_preference" 
+                                       placeholder="Optional - specific doctor name">
+                            </div>
+                            <div class="col-12">
+                                <label for="reason" class="form-label">Reason for Visit *</label>
+                                <textarea class="form-control" id="reason" name="reason" rows="4" 
+                                          placeholder="Please describe your symptoms or reason for the appointment" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> Back to Home
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-calendar-check me-2"></i> Book Appointment
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Information Card -->
+            <div class="info-card mt-4">
+                <h6><i class="fas fa-info-circle me-2"></i>Important Information</h6>
+                <ul class="mb-0">
+                    <li>Appointment requests will be reviewed within 24 hours</li>
+                    <li>You will receive a confirmation once your appointment is approved</li>
+                    <li>Please arrive 15 minutes early for your appointment</li>
+                    <li>Bring a valid ID and insurance card if applicable</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

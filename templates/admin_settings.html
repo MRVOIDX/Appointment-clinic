@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Settings - DARSEHHA Clinic{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="fw-bold">
+                <i class="fas fa-cog text-primary me-2"></i>
+                Website Settings
+            </h1>
+            <p class="text-muted">Manage clinic information and website configuration</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Settings Navigation -->
+        <div class="col-lg-3 mb-4">
+            <div class="settings-nav bg-white rounded shadow-sm">
+                <div class="p-3 border-bottom">
+                    <h6 class="mb-0 fw-bold">Settings Categories</h6>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="#clinic-info" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
+                        <i class="fas fa-hospital me-2"></i>
+                        Clinic Information
+                    </a>
+                    <a href="#website-content" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="fas fa-globe me-2"></i>
+                        Website Content
+                    </a>
+                    <a href="#appointment-settings" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="fas fa-calendar-cog me-2"></i>
+                        Appointment Settings
+                    </a>
+                    <a href="#system-settings" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="fas fa-tools me-2"></i>
+                        System Settings
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Content -->
+        <div class="col-lg-9">
+            <div class="tab-content">
+                <!-- Clinic Information -->
+                <div class="tab-pane fade show active" id="clinic-info">
+                    <div class="bg-white rounded shadow-sm p-4">
+                        <h5 class="mb-4">
+                            <i class="fas fa-hospital text-primary me-2"></i>
+                            Clinic Information
+                        </h5>
+                        
+                        <form id="clinicInfoForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="clinicName" class="form-label">Clinic Name</label>
+                                    <input type="text" class="form-control" id="clinicName" value="DARSEHHA Clinic">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="clinicPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="clinicPhone" value="(555) 123-4567">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="clinicEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="clinicEmail" value="info@darsehha.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emergencyPhone" class="form-label">Emergency Phone</label>
+                                    <input type="tel" class="form-control" id="emergencyPhone" value="(555) 911-HELP">
+                                </div>
+                                <div class="col-12">
+                                    <label for="clinicAddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="clinicAddress" value="123 Health Street, Medical City">
+                                </div>
+                                <div class="col-12">
+                                    <label for="clinicDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="clinicDescription" rows="3">Providing quality healthcare services with compassion and excellence.</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i> Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Website Content -->
+                <div class="tab-pane fade" id="website-content">
+                    <div class="bg-white rounded shadow-sm p-4">
+                        <h5 class="mb-4">
+                            <i class="fas fa-globe text-primary me-2"></i>
+                            Website Content
+                        </h5>
+                        
+                        <form id="websiteContentForm">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="heroTitle" class="form-label">Hero Section Title</label>
+                                    <input type="text" class="form-control" id="heroTitle" value="Your Health, Our Priority">
+                                </div>
+                                <div class="col-12">
+                                    <label for="heroSubtitle" class="form-label">Hero Section Subtitle</label>
+                                    <textarea class="form-control" id="heroSubtitle" rows="2">Experience exceptional healthcare with our team of dedicated professionals. Book your appointment today and take the first step towards better health.</textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="totalPatients" class="form-label">Total Patients Count</label>
+                                    <input type="text" class="form-control" id="totalPatients" value="15K+">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="totalDoctors" class="form-label">Total Doctors Count</label>
+                                    <input type="text" class="form-control" id="totalDoctors" value="50+">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="yearsExperience" class="form-label">Years of Experience</label>
+                                    <input type="text" class="form-control" id="yearsExperience" value="25">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emergencyAvailability" class="form-label">Emergency Availability</label>
+                                    <input type="text" class="form-control" id="emergencyAvailability" value="24/7">
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i> Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Appointment Settings -->
+                <div class="tab-pane fade" id="appointment-settings">
+                    <div class="bg-white rounded shadow-sm p-4">
+                        <h5 class="mb-4">
+                            <i class="fas fa-calendar-cog text-primary me-2"></i>
+                            Appointment Settings
+                        </h5>
+                        
+                        <form id="appointmentSettingsForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="weekdayHours" class="form-label">Weekday Hours</label>
+                                    <input type="text" class="form-control" id="weekdayHours" value="8:00 AM - 8:00 PM">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="saturdayHours" class="form-label">Saturday Hours</label>
+                                    <input type="text" class="form-control" id="saturdayHours" value="9:00 AM - 6:00 PM">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="sundayHours" class="form-label">Sunday Hours</label>
+                                    <input type="text" class="form-control" id="sundayHours" value="10:00 AM - 4:00 PM">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="slotDuration" class="form-label">Appointment Slot Duration (minutes)</label>
+                                    <select class="form-control" id="slotDuration">
+                                        <option value="15">15 minutes</option>
+                                        <option value="30" selected>30 minutes</option>
+                                        <option value="45">45 minutes</option>
+                                        <option value="60">60 minutes</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="maxAdvanceBooking" class="form-label">Max Advance Booking (days)</label>
+                                    <input type="number" class="form-control" id="maxAdvanceBooking" value="30">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="minAdvanceBooking" class="form-label">Min Advance Booking (hours)</label>
+                                    <input type="number" class="form-control" id="minAdvanceBooking" value="2">
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i> Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- System Settings -->
+                <div class="tab-pane fade" id="system-settings">
+                    <div class="bg-white rounded shadow-sm p-4">
+                        <h5 class="mb-4">
+                            <i class="fas fa-tools text-primary me-2"></i>
+                            System Settings
+                        </h5>
+                        
+                        <form id="systemSettingsForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="maintenanceMode" class="form-label">Maintenance Mode</label>
+                                    <select class="form-control" id="maintenanceMode">
+                                        <option value="off" selected>Off</option>
+                                        <option value="on">On</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="autoApproval" class="form-label">Auto-approve Appointments</label>
+                                    <select class="form-control" id="autoApproval">
+                                        <option value="off" selected>Off (Manual Review)</option>
+                                        <option value="on">On (Auto-approve)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emailNotifications" class="form-label">Email Notifications</label>
+                                    <select class="form-control" id="emailNotifications">
+                                        <option value="off">Off</option>
+                                        <option value="on" selected>On</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="dataRetention" class="form-label">Data Retention (days)</label>
+                                    <input type="number" class="form-control" id="dataRetention" value="365">
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i> Save Changes
+                                </button>
+                                <button type="button" class="btn btn-outline-danger ms-2" onclick="resetSettings()">
+                                    <i class="fas fa-undo me-1"></i> Reset to Defaults
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle form submissions
+    document.getElementById('clinicInfoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveSettings('clinic-info');
+    });
+    
+    document.getElementById('websiteContentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveSettings('website-content');
+    });
+    
+    document.getElementById('appointmentSettingsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveSettings('appointment-settings');
+    });
+    
+    document.getElementById('systemSettingsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveSettings('system-settings');
+    });
+    
+    // Load saved settings
+    loadSettings();
+});
+
+async function saveSettings(category) {
+    const form = document.getElementById(category.replace('-', '') + 'Form');
+    const formData = {};
+    
+    for (let input of form.querySelectorAll('input, textarea, select')) {
+        formData[input.id] = input.value;
+    }
+    
+    try {
+        const response = await fetch('/admin/settings/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                category: category,
+                data: formData
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showAlert('success', `${category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())} settings saved successfully!`);
+            
+            // Apply changes to website immediately
+            applySettingsToWebsite();
+        } else {
+            showAlert('error', result.message || 'Failed to save settings');
+        }
+    } catch (error) {
+        console.error('Error saving settings:', error);
+        showAlert('error', 'Error saving settings. Please try again.');
+    }
+}
+
+async function loadSettings() {
+    try {
+        const response = await fetch('/admin/settings/load');
+        const result = await response.json();
+        
+        if (result.success) {
+            const settings = result.settings;
+            
+            for (const [category, categorySettings] of Object.entries(settings)) {
+                for (const [key, value] of Object.entries(categorySettings)) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.value = value;
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error loading settings:', error);
+    }
+}
+
+async function resetSettings() {
+    if (confirm('Are you sure you want to reset all settings to defaults? This action cannot be undone.')) {
+        try {
+            // Reset each category to defaults
+            const defaultSettings = {
+                'clinic-info': {
+                    'clinicName': 'DARSEHHA Clinic',
+                    'clinicPhone': '(555) 123-4567',
+                    'clinicEmail': 'info@darsehha.com',
+                    'emergencyPhone': '(555) 911-HELP',
+                    'clinicAddress': '123 Health Street, Medical City',
+                    'clinicDescription': 'Providing quality healthcare services with compassion and excellence.'
+                },
+                'website-content': {
+                    'heroTitle': 'Your Health, Our Priority',
+                    'heroSubtitle': 'Experience exceptional healthcare with our team of dedicated professionals. Book your appointment today and take the first step towards better health.',
+                    'totalPatients': '15K+',
+                    'totalDoctors': '50+',
+                    'yearsExperience': '25',
+                    'emergencyAvailability': '24/7'
+                },
+                'appointment-settings': {
+                    'weekdayHours': '8:00 AM - 8:00 PM',
+                    'saturdayHours': '9:00 AM - 6:00 PM',
+                    'sundayHours': '10:00 AM - 4:00 PM',
+                    'slotDuration': '30',
+                    'maxAdvanceBooking': '30',
+                    'minAdvanceBooking': '2'
+                },
+                'system-settings': {
+                    'maintenanceMode': 'off',
+                    'autoApproval': 'off',
+                    'emailNotifications': 'on',
+                    'dataRetention': '365'
+                }
+            };
+            
+            for (const [category, data] of Object.entries(defaultSettings)) {
+                await fetch('/admin/settings/save', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        category: category,
+                        data: data
+                    })
+                });
+            }
+            
+            showAlert('success', 'Settings reset to defaults successfully!');
+            setTimeout(() => location.reload(), 1500);
+        } catch (error) {
+            console.error('Error resetting settings:', error);
+            showAlert('error', 'Error resetting settings. Please try again.');
+        }
+    }
+}
+
+// Apply settings changes to website in real-time
+function applySettingsToWebsite() {
+    // This function will update the current page if it's public-facing
+    if (window.parent && window.parent !== window) {
+        // If in iframe, update parent
+        window.parent.postMessage({type: 'refreshSettings'}, '*');
+    } else {
+        // Trigger a custom event that other pages can listen for
+        window.dispatchEvent(new CustomEvent('settingsUpdated'));
+    }
+}
+
+function showAlert(type, message) {
+    const alertClass = type === 'error' ? 'alert-danger' : 'alert-success';
+    const alertHtml = `
+        <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+    
+    const container = document.querySelector('.container-fluid');
+    if (container) {
+        container.insertAdjacentHTML('afterbegin', alertHtml);
+        
+        // Auto-dismiss after 3 seconds
+        setTimeout(() => {
+            const alert = container.querySelector('.alert');
+            if (alert) {
+                const bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            }
+        }, 3000);
+    }
+}
+</script>
+{% endblock %}

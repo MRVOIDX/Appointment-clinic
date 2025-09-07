@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to DARSEHHA Clinic{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold mb-4">
+                        Your Health, Our <span class="text-primary">Priority</span>
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Experience exceptional healthcare with our team of dedicated professionals. 
+                        Book your appointment today and take the first step towards better health.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-calendar-plus me-2"></i> Book Appointment
+                        </a>
+                        <a href="#services" class="btn btn-outline-primary btn-lg px-4">
+                            <i class="fas fa-info-circle me-2"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image text-center">
+                    <div class="medical-icon-grid">
+                        <div class="icon-item">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="icon-item">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div class="icon-item">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="icon-item">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Why Choose DARSEHHA?</h2>
+            <p class="text-muted">We provide comprehensive healthcare services with modern technology</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h5>24/7 Available</h5>
+                    <p class="text-muted">Round-the-clock medical support and emergency services</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h5>Expert Doctors</h5>
+                    <p class="text-muted">Highly qualified and experienced medical professionals</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h5>Modern Equipment</h5>
+                    <p class="text-muted">State-of-the-art medical technology and equipment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Services</h2>
+            <p class="text-muted">Comprehensive healthcare services for all your needs</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h5>Cardiology</h5>
+                    <p class="text-muted">Heart health assessment and treatment</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h5>Neurology</h5>
+                    <p class="text-muted">Nervous system disorders and treatment</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h5>Orthopedics</h5>
+                    <p class="text-muted">Bone, joint, and muscle care</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h5>Ophthalmology</h5>
+                    <p class="text-muted">Eye care and vision treatment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Impact in Numbers</h2>
+            <p class="text-muted">Trusted by thousands of patients across the region</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="stat-card text-center p-4">
+                    <div class="stat-number text-primary fw-bold display-4">15K+</div>
+                    <div class="stat-label text-muted">Happy Patients</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card text-center p-4">
+                    <div class="stat-number text-primary fw-bold display-4">50+</div>
+                    <div class="stat-label text-muted">Expert Doctors</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card text-center p-4">
+                    <div class="stat-number text-primary fw-bold display-4">25</div>
+                    <div class="stat-label text-muted">Years Experience</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card text-center p-4">
+                    <div class="stat-number text-primary fw-bold display-4">24/7</div>
+                    <div class="stat-label text-muted">Emergency Care</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Opening Hours Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">Opening Hours</h2>
+                <div class="schedule-list">
+                    <div class="schedule-item d-flex justify-content-between py-2 border-bottom">
+                        <span class="fw-bold">Monday - Friday</span>
+                        <span class="text-primary">8:00 AM - 8:00 PM</span>
+                    </div>
+                    <div class="schedule-item d-flex justify-content-between py-2 border-bottom">
+                        <span class="fw-bold">Saturday</span>
+                        <span class="text-primary">9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="schedule-item d-flex justify-content-between py-2 border-bottom">
+                        <span class="fw-bold">Sunday</span>
+                        <span class="text-primary">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="schedule-item d-flex justify-content-between py-2">
+                        <span class="fw-bold text-danger">Emergency</span>
+                        <span class="text-danger">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">Emergency Services</h2>
+                <div class="emergency-info">
+                    <div class="emergency-card bg-danger text-white p-4 rounded mb-3">
+                        <h5 class="mb-2"><i class="fas fa-phone-alt me-2"></i>Emergency Hotline</h5>
+                        <p class="mb-0 fs-4 fw-bold">911 or (555) 911-HELP</p>
+                    </div>
+                    <div class="emergency-card bg-warning text-dark p-4 rounded">
+                        <h5 class="mb-2"><i class="fas fa-ambulance me-2"></i>Ambulance Service</h5>
+                        <p class="mb-0">Available 24/7 with advanced life support equipment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">What Our Patients Say</h2>
+            <p class="text-muted">Real stories from real patients</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card bg-white p-4 rounded shadow-sm">
+                    <div class="stars text-warning mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted mb-3">"Excellent care and professional staff. The doctors are very knowledgeable and caring. Highly recommend DARSEHHA Clinic!"</p>
+                    <div class="patient-info d-flex align-items-center">
+                        <div class="patient-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bold">Sarah Johnson</div>
+                            <small class="text-muted">Cardiology Patient</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card bg-white p-4 rounded shadow-sm">
+                    <div class="stars text-warning mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted mb-3">"State-of-the-art facilities and amazing medical team. They made my surgery experience as comfortable as possible."</p>
+                    <div class="patient-info d-flex align-items-center">
+                        <div class="patient-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bold">Michael Chen</div>
+                            <small class="text-muted">Orthopedic Patient</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card bg-white p-4 rounded shadow-sm">
+                    <div class="stars text-warning mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted mb-3">"Quick appointment booking and minimal wait times. The staff is friendly and the doctors are top-notch professionals."</p>
+                    <div class="patient-info d-flex align-items-center">
+                        <div class="patient-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bold">Emily Rodriguez</div>
+                            <small class="text-muted">General Medicine Patient</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specialties Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Medical Specialties</h2>
+            <p class="text-muted">Comprehensive healthcare services across all major medical fields</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="specialty-card h-100">
+                    <div class="specialty-icon text-primary mb-3">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h5>General Surgery</h5>
+                    <p class="text-muted">Advanced surgical procedures with minimally invasive techniques</p>
+                    <ul class="list-unstyled text-muted small">
+                        <li><i class="fas fa-check text-success me-2"></i>Laparoscopic Surgery</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Emergency Surgery</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Outpatient Procedures</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="specialty-card h-100">
+                    <div class="specialty-icon text-primary mb-3">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h5>Pediatrics</h5>
+                    <p class="text-muted">Specialized care for infants, children, and adolescents</p>
+                    <ul class="list-unstyled text-muted small">
+                        <li><i class="fas fa-check text-success me-2"></i>Newborn Care</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Vaccination Programs</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Growth Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="specialty-card h-100">
+                    <div class="specialty-icon text-primary mb-3">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h5>Gynecology</h5>
+                    <p class="text-muted">Women's health and reproductive care services</p>
+                    <ul class="list-unstyled text-muted small">
+                        <li><i class="fas fa-check text-success me-2"></i>Prenatal Care</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Family Planning</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Routine Screenings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-3">Ready to Get Started?</h2>
+                <p class="mb-0">Join thousands of satisfied patients who trust us with their healthcare needs.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('login') }}" class="btn btn-light btn-lg">
+                    <i class="fas fa-user-plus me-2"></i> Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

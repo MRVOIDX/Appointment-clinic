@@ -1,0 +1,5 @@
+> Alternative pip command
+py -m pip install -r dependencies_list.txt
+
+> Then run the application
+py main.py

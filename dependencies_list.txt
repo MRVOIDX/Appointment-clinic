@@ -1,0 +1,10 @@
+Flask==2.3.3
+gunicorn==21.2.0
+
+# Installation instructions:
+# pip install -r dependencies_list.txt
+
+# To run the application:
+# python main.py
+# or
+# gunicorn --bind 0.0.0.0:5000 main:app

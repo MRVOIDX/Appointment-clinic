@@ -1,7 +1,7 @@
 # 🏥 DARSEHHA Clinic Project
 
 <p align="center">
-  <img src="./static/logo.png" alt="DARSEHHA Clinic" width="200"/>
+  <img src="./homepage.png" alt="DARSEHHA Clinic" width="200"/>
 </p>
 
 <p align="center">
